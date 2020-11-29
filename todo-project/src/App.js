@@ -8,7 +8,7 @@ function App() {
     return (
         <>
             <div className="App">
-                <Header userName={"Blair"}/>
+                <Header userName={"Dion"}/>
                 <div className="body-section">
                     바디내용바디내용
                 </div>
