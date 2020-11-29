@@ -11,7 +11,9 @@ function App() {
             <div className="App">
                 <Header userName={"Dion"}/>
                 <div className="body-section">
-                    <List/>
+                        <List/>
+                        <List/>
+                        <List/>
                 </div>
             </div>
         </>

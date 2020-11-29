@@ -1,7 +1,10 @@
 .App {
   min-width: 200px;
+
   .body-section {
     padding: 20px;
-    border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
   }
 }
