@@ -4,8 +4,8 @@
   background-color: #efefef;
   border-radius: 5px;
   height: 85vh;
-  width: 28vw;
-  min-width: 28vw;
+  //width: 28vw;
+  min-width: 310px;
   margin-right: 1rem;
 
   &:last-child {
@@ -54,9 +54,11 @@
 
         .card-add-btn {
           margin-right: 5px;
+          cursor: pointer;
         }
 
         .list-setting-btn {
+          cursor: pointer;
 
         }
       }
