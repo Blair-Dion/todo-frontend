@@ -1,0 +1,64 @@
+.list-section {
+  padding: 10px;
+  border: 1px solid #e9e9e9;
+  background-color: #efefef;
+  border-radius: 5px;
+  width: 30vw;
+  min-width: 200px;
+  box-sizing: border-box;
+
+  .list-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .header-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: center;
+      margin-bottom: 15px;
+
+      .left-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+
+        .card-count-wrapper {
+          margin-right: 5px;
+          background-color: gray;
+          padding: 6px 7.5px 0px 8.5px;
+          border-radius: 100%;
+
+          .card-count {
+            color: white;
+          }
+        }
+
+        .list-title {
+          margin-top: 4px;
+          font-size: 1.2rem;
+        }
+      }
+
+      .right-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        margin-top: 2px;
+        font-size: 1.2rem;
+
+        .card-add-btn {
+          margin-right: 5px;
+        }
+
+        .list-setting-btn {
+
+        }
+      }
+    }
+
+    .card-list-wrapper {
+
+    }
+  }
+}

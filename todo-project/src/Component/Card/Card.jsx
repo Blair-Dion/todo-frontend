@@ -5,7 +5,7 @@ const Card = () => {
 
     return (
         <>
-            <div className="card">
+            <div className="card-section">
                 카드
             </div>
         </>

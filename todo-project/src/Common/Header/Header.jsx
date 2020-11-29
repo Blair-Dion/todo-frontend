@@ -1,4 +1,5 @@
 import React from 'react';
+import { TiThMenuOutline } from 'react-icons/ti';
 import './Header.scss';
 
 const Header = ({userName}) => {
@@ -7,11 +8,13 @@ const Header = ({userName}) => {
         <>
             <div className="header-section">
                 <div className="left-wrapper">
-                    <div className="username">{userName}</div>
-                    <div className="board-title">TodoBoard</div>
+                    <span className="username">{userName}</span>
+                    <span className="board-title">TodoBoard</span>
                 </div>
                 <div className="right-wrapper">
-                    <div className="manu-bar">menu</div>
+                    <div className="menu-wrapper">
+                        <TiThMenuOutline/>
+                    </div>
                 </div>
             </div>
         </>

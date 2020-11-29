@@ -5,7 +5,7 @@ const Menu = () => {
 
     return (
         <>
-            <div className="Menu">
+            <div className="menu-section">
                 카드
             </div>
         </>

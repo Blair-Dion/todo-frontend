@@ -7,6 +7,7 @@
   color: #ffffff;
   padding: 20px;
   font-size: 1.2rem;
+  box-sizing: border-box;
 
   .left-wrapper {
     display: flex;
@@ -21,8 +22,18 @@
   }
 
   .right-wrapper {
-    .manu-bar {
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .menu-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      svg {
+        font-size: 25px;
+      }
     }
   }
 }
