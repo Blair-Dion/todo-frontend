@@ -25,9 +25,9 @@ const List = () => {
                     </div>
 
                     <div className="card-list-wrapper">
-                        <Card/>
-                        <Card/>
-                        <Card/>
+                        <Card title={"리액트 공부"} contents={"함수형 컴포넌트 작업하기"} writer={"Blair"}/>
+                        <Card title={"타입스크립트 공부"} contents={"타입 작업하기"} writer={"Dion"}/>
+                        <Card title={"자바 공부"} contents={"OOP 작업하기"} writer={"Bladi"}/>
                     </div>
                 </div>
             </div>

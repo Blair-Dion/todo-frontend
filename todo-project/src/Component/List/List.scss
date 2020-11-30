@@ -21,7 +21,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-content: center;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
 
       .left-wrapper {
         display: flex;
@@ -29,7 +29,7 @@
         align-content: center;
 
         .card-count-wrapper {
-          margin-right: 5px;
+          margin-right: 13px;
           background-color: gray;
           padding: 6px 7.5px 0px 8.5px;
           border-radius: 100%;
@@ -42,6 +42,7 @@
         .list-title {
           margin-top: 4px;
           font-size: 1.2rem;
+          font-weight: 600;
         }
       }
 
