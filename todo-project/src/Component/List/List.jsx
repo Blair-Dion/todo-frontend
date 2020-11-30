@@ -24,6 +24,16 @@ const List = () => {
                         </div>
                     </div>
 
+                    <div className="card-create-area-wrapper">
+                        <div className="contents-wrapper">
+                            <textarea placeholder="Enter a note"/>
+                        </div>
+                        <div className="btn-wrapper">
+                            <div className="add-btn">Add</div>
+                            <div className="cancel-btn">Cancel</div>
+                        </div>
+                    </div>
+
                     <div className="card-list-wrapper">
                         <Card title={"리액트 공부"} contents={"함수형 컴포넌트 작업하기"} writer={"Blair"}/>
                         <Card title={"타입스크립트 공부"} contents={"타입 작업하기"} writer={"Dion"}/>

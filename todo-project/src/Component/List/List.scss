@@ -65,8 +65,28 @@
       }
     }
 
-    .card-list-wrapper {
+    .card-create-area-wrapper {
+      .contents-wrapper {
+        textarea {
+          width: 100%;
+          box-sizing: border-box;
+        }
+      }
+      .btn-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+        .add-btn {
 
+        }
+        .cancel-btn {
+
+        }
+      }
+    }
+
+    .card-list-wrapper {
     }
   }
 }
