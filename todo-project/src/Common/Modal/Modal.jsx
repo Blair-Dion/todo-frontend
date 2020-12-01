@@ -1,19 +1,19 @@
 import React from 'react';
 import './Modal.scss';
 
-
-const Modal = ({message, setIsModal}) => {
+const Modal = ({message, setIsModal, setIsDeleteCard, setDeleteCardId}) => {
     const handleClickCancelBtn = () => {
         setIsModal(false);
-
+        setIsDeleteCard(false);
+        setDeleteCardId(0);
     }
 
     const handleClickConfirmBtn = () => {
         setIsModal(false);
+        setIsDeleteCard(true);
     }
 
     return (
-        <>
             <div className="modal-page">
                 <div className="modal-section">
                     <div className="message">{message}</div>
@@ -23,7 +23,6 @@ const Modal = ({message, setIsModal}) => {
                     </div>
                 </div>
             </div>
-        </>
     )
 }
 
