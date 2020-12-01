@@ -15,6 +15,7 @@
   .list-wrapper {
     display: flex;
     flex-direction: column;
+    height: 100%;
 
     .header-wrapper {
       display: flex;
@@ -71,13 +72,13 @@
         flex-direction: column;
         margin-bottom: 5px;
 
-        input {
+        .title {
           width: 100%;
           box-sizing: border-box;
           margin-bottom: 5px;
           padding: 7px
         }
-        textarea {
+        .contents {
           width: 100%;
           max-width: 100%;
           box-sizing: border-box;
@@ -115,6 +116,8 @@
     }
 
     .card-list-wrapper {
+      height: 100%;
+      overflow: scroll;
     }
   }
 }

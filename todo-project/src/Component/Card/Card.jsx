@@ -2,9 +2,11 @@ import React from 'react';
 import './Card.scss';
 import {BsCardChecklist} from 'react-icons/bs';
 import {ImCancelCircle} from 'react-icons/im';
+import Modal from "../../Common/Modal/Modal";
 
 
-const Card = ({title, contents, writer}) => {
+const Card = ({cardId, title, contents, writer, setIsModal, setDeleteCardId}) => {
+    const handleClickCardDelBtn = () => setIsModal(true);
 
     return (
         <>
@@ -16,12 +18,13 @@ const Card = ({title, contents, writer}) => {
                             <span className="card-title">{title}</span>
                         </div>
 
-                        <div className="btn card-del-btn"><ImCancelCircle/></div>
+                        <div className="btn card-del-btn" onClick={handleClickCardDelBtn}><ImCancelCircle/></div>
                     </div>
                     <p className="contents-wrapper">{contents}</p>
                     <span className="writer-wrapper">Added by <span>{writer}</span></span>
                 </div>
             </div>
+
         </>
     )
 }
