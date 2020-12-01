@@ -5,8 +5,9 @@
   align-items: center;
   background-color: #000000;
   color: #ffffff;
-  padding: 20px;
-  font-size: 1.2rem;
+  padding: 20px 25px;
+  font-size: 1.5rem;
+  box-sizing: border-box;
 
   .left-wrapper {
     display: flex;
@@ -21,8 +22,18 @@
   }
 
   .right-wrapper {
-    .manu-bar {
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .menu-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      svg {
+        font-size: 25px;
+      }
     }
   }
 }

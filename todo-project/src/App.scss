@@ -1,6 +1,17 @@
 .App {
+  min-width: 200px;
+
   .body-section {
-    padding: 20px;
-    border: 1px solid gray;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+  }
+
+  .btn {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.4;
+    }
   }
 }

@@ -1,0 +1,123 @@
+.list-section {
+  padding: 10px;
+  border: 1px solid #e9e9e9;
+  background-color: #efefef;
+  border-radius: 5px;
+  height: 85vh;
+  //width: 28vw;
+  min-width: 310px;
+  margin-right: 1rem;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+
+  .list-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .header-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: center;
+      margin-bottom: 10px;
+
+      .left-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+
+        .card-count-wrapper {
+          margin-right: 13px;
+          background-color: gray;
+          padding: 6px 7.5px 0px 8.5px;
+          border-radius: 100%;
+
+          .card-count {
+            color: white;
+          }
+        }
+
+        .list-title {
+          margin-top: 4px;
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+      }
+
+      .right-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        margin-top: 2px;
+        font-size: 1.2rem;
+
+        .card-add-btn {
+          margin-right: 5px;
+        }
+
+        .list-setting-btn {
+
+        }
+      }
+    }
+
+    .card-create-area-wrapper {
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      .contents-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5px;
+
+        .title {
+          width: 100%;
+          box-sizing: border-box;
+          margin-bottom: 5px;
+          padding: 7px
+        }
+        .contents {
+          width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
+          padding: 8px;
+        }
+      }
+      .btn-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+        .btn {
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          border-radius: 5px;
+          width: 49%;
+          padding: 8px 5px 5px 5px;
+          box-sizing: border-box;
+          font-weight: 600;
+
+        }
+
+        .add-btn {
+          background-color: #58c899;
+          color: #ffffff;
+          border: 1px solid #099f5a;
+
+        }
+        .cancel-btn {
+          background-color: #fdfdfd;
+          border: 1px solid #c2c2c2;
+        }
+      }
+    }
+
+    .card-list-wrapper {
+      height: 100%;
+      overflow: scroll;
+    }
+  }
+}

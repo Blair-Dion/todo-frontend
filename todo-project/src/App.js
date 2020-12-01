@@ -1,16 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.scss';
 import './reset.scss';
 import Header from "./Common/Header/Header";
+import List from "./Component/List/List";
 
 
 function App() {
+
     return (
         <>
             <div className="App">
-                <Header userName={"Dion"}/>
+                <Header userName={"Bladi"}/>
                 <div className="body-section">
-                    바디내용바디내용
+                        <List/>
+                        <List/>
+                        <List/>
                 </div>
             </div>
         </>
