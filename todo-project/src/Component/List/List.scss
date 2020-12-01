@@ -66,10 +66,19 @@
     }
 
     .card-create-area-wrapper {
+      margin-bottom: 10px;
       .contents-wrapper {
-        textarea {
+        input {
           width: 100%;
           box-sizing: border-box;
+          margin-bottom: 5px;
+          padding: 7px
+        }
+        textarea {
+          width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
+          padding: 8px;
         }
       }
       .btn-wrapper {
@@ -77,11 +86,27 @@
         flex-direction: row;
         justify-content: space-between;
         align-content: center;
+        .btn {
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          border-radius: 5px;
+          width: 49%;
+          padding: 8px 5px 5px 5px;
+          box-sizing: border-box;
+          font-weight: 600;
+
+        }
+
         .add-btn {
+          background-color: #58c899;
+          color: #ffffff;
+          border: 1px solid #099f5a;
 
         }
         .cancel-btn {
-
+          background-color: #fdfdfd;
+          border: 1px solid #c2c2c2;
         }
       }
     }

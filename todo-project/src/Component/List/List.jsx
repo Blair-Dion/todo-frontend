@@ -26,11 +26,12 @@ const List = () => {
 
                     <div className="card-create-area-wrapper">
                         <div className="contents-wrapper">
-                            <textarea placeholder="Enter a note"/>
+                            <input type="text" placeholder="Enter a note title"/>
+                            <textarea placeholder="Enter a note contents"/>
                         </div>
                         <div className="btn-wrapper">
-                            <div className="add-btn">Add</div>
-                            <div className="cancel-btn">Cancel</div>
+                            <div className="btn add-btn">Add</div>
+                            <div className="btn cancel-btn">Cancel</div>
                         </div>
                     </div>
 
