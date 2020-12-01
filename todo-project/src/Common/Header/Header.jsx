@@ -13,7 +13,7 @@ const Header = ({userName}) => {
                 </div>
                 <div className="right-wrapper">
                     <div className="menu-wrapper">
-                        <TiThMenuOutline/>
+                        <TiThMenuOutline className="btn"/>
                     </div>
                 </div>
             </div>

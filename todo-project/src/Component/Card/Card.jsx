@@ -16,7 +16,7 @@ const Card = ({title, contents, writer}) => {
                             <span className="card-title">{title}</span>
                         </div>
 
-                        <div className="card-del-btn"><ImCancelCircle/></div>
+                        <div className="btn card-del-btn"><ImCancelCircle/></div>
                     </div>
                     <p className="contents-wrapper">{contents}</p>
                     <span className="writer-wrapper">Added by <span>{writer}</span></span>

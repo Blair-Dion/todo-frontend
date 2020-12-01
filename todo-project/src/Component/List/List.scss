@@ -55,11 +55,9 @@
 
         .card-add-btn {
           margin-right: 5px;
-          cursor: pointer;
         }
 
         .list-setting-btn {
-          cursor: pointer;
 
         }
       }
@@ -67,7 +65,12 @@
 
     .card-create-area-wrapper {
       margin-bottom: 10px;
+      box-sizing: border-box;
       .contents-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5px;
+
         input {
           width: 100%;
           box-sizing: border-box;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BiAddToQueue} from 'react-icons/bi';
 import {HiOutlineDotsHorizontal} from 'react-icons/hi';
 import {BsCircleFill} from 'react-icons/bs';
@@ -6,6 +6,12 @@ import './List.scss';
 import Card from "../Card/Card";
 
 const List = () => {
+    const [isCardArea, setIsCardArea] = useState(false);
+
+    const handleOpenCardInputArea = () => {
+        setIsCardArea(!isCardArea);
+    }
+
 
     return (
         <>
@@ -19,21 +25,22 @@ const List = () => {
                             <span className="list-title">Todo</span>
                         </div>
                         <div className="right-wrapper">
-                            <div className="card-add-btn"><BiAddToQueue/></div>
-                            <div className="list-setting-btn"><HiOutlineDotsHorizontal/></div>
+                            <div className="btn card-add-btn" onClick={handleOpenCardInputArea}><BiAddToQueue/></div>
+                            <div className="btn list-setting-btn"><HiOutlineDotsHorizontal/></div>
                         </div>
                     </div>
-
-                    <div className="card-create-area-wrapper">
-                        <div className="contents-wrapper">
-                            <input type="text" placeholder="Enter a note title"/>
-                            <textarea placeholder="Enter a note contents"/>
+                    {isCardArea ?
+                        <div className="card-create-area-wrapper">
+                            <div className="contents-wrapper">
+                                <input type="text" placeholder="Enter a note title"/>
+                                <textarea placeholder="Enter a note contents"/>
+                            </div>
+                            <div className="btn-wrapper">
+                                <div className="btn add-btn">Add</div>
+                                <div className="btn cancel-btn">Cancel</div>
+                            </div>
                         </div>
-                        <div className="btn-wrapper">
-                            <div className="btn add-btn">Add</div>
-                            <div className="btn cancel-btn">Cancel</div>
-                        </div>
-                    </div>
+                        : null}
 
                     <div className="card-list-wrapper">
                         <Card title={"리액트 공부"} contents={"함수형 컴포넌트 작업하기"} writer={"Blair"}/>
