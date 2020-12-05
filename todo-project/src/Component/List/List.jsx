@@ -6,7 +6,7 @@ import Card from "../Card/Card";
 import Modal from "../../Common/Modal/Modal";
 import UserContext from '../../Context/UserContext';
 
-const List = ({cards, setCards}) => {
+const List = ({cards, addCard, deleteCard}) => {
     const userInfo = useContext(UserContext);
 
     const [isModal, setIsModal] = useState(false);
@@ -27,7 +27,7 @@ const List = ({cards, setCards}) => {
             user_id: userInfo.user_id
         }
 
-        setCards([newCardInfo, ...cards]);
+        addCard(newCardInfo)
         setNewCardTitle("");
         setNewCardContents("");
         setIsCardArea(false);
@@ -43,17 +43,17 @@ const List = ({cards, setCards}) => {
         e.target.className === "title" ? setNewCardTitle(tmpText) : setNewCardContents(tmpText);
     }
 
-    useEffect(() => {
-        cards.map((card, index) => {
-            if (card.id === deleteCardId) {
-                const tmpArray = [...cards];
-                tmpArray.splice(index, 1);
-                setCards(tmpArray);
-            }
-        })
+    // useEffect(() => {
+    //     cards.map((card, index) => {
+    //         if (card.id === deleteCardId) {
+    //             const tmpArray = [...cards];
+    //             tmpArray.splice(index, 1);
+    //             setCards(tmpArray);
+    //         }
+    //     })
 
-        setIsDeleteCard(false);
-    }, [isDeleteCard])
+    //     setIsDeleteCard(false);
+    // }, [isDeleteCard])
 
 
     return (
@@ -91,8 +91,7 @@ const List = ({cards, setCards}) => {
 
                     <div className="card-list-wrapper">
                         {cards.map((card) => (
-                                <Card key={card.id} cardInfo={card} setIsModal={setIsModal}
-                                      setDeleteCardId={setDeleteCardId}/>
+                                <Card key={card.id} cardInfo={card} onDelete={() => deleteCard(card.id)}/>
                             )
                         )}
                     </div>

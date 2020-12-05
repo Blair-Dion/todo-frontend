@@ -45,11 +45,22 @@ function App() {
                             <List 
                                 key={list.id}
                                 cards={list.cards}
-                                setCards={(cards) => {
+                                addCard={(newCardInfo) => {
                                     const lists = [...initialData.lists];
-                                    lists[index] = { ...list, cards }
+                                    lists[index] = { ...list, cards: [newCardInfo].concat(lists[index].cards) }
                                     setInitialData({...initialData, lists })
-                                }} />
+                                }}
+                                deleteCard={(id) => {
+                                    const lists = [...initialData.lists];
+                                    lists[index] = { ...list, cards: lists[index].cards.filter((i) => i.id !== id) }
+                                    setInitialData({...initialData, lists })
+                                }}
+                                // setCards={(cards) => {
+                                //     const lists = [...initialData.lists];
+                                //     lists[index] = { ...list, cards }
+                                //     setInitialData({...initialData, lists })
+                                // }} 
+                                />
                         ))}
                     </div>
                 )}
