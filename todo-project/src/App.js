@@ -35,23 +35,14 @@ const App = connect((state) => state)((props) => {
         getInitialData();
     }, [])
 
-
     return (
         <div className="App">
             <UserContext.Provider value={userInfo}>
                 <Header boardName={initialData.name} totalTodoCount={initialData.lists.reduce((x, y) => x + y.cards.length, 0)} />
                 {dataLoading ? (<div>데이터를 가져오고 있습니다.</div>) : (
                     <div className="body-section">
-                        {initialData.lists.map((list, index) => (
-                            <List
-                                key={list.id}
-                                cards={list.cards}
-                                addCard={(newCardInfo) =>
-                                    dispatch({ type: "ADD_CARD", payload: { listId: index, newCardInfo } })}
-                                deleteCard={(cardId) =>
-                                    dispatch({ type: "DELETE_CARD", payload: { listId: index, cardId } })}
-                            />
-                        ))}
+                        {initialData.lists.map((list) =>
+                            <List key={list.id} id={list.id} />)}
                     </div>
                 )}
             </UserContext.Provider>

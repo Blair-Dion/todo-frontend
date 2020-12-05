@@ -12,10 +12,11 @@ const rootReducer = (state, action) => {
   } else if (action.type === "ADD_CARD") {
     const { initialData } = state;
     const { listId, newCardInfo } = action.payload;
-  
+
     const lists = [...initialData.lists];
-    const list = lists[listId];
-    lists[listId] = { ...list, cards: [newCardInfo].concat(list.cards) }
+    const index = lists.findIndex((i) => i.id === listId);
+    const list = lists[index];
+    lists[index] = { ...list, cards: [newCardInfo].concat(list.cards) }
     return {
       ...state,
       initialData: { ...initialData, lists }
@@ -25,16 +26,15 @@ const rootReducer = (state, action) => {
     const { listId, cardId } = action.payload;
 
     const lists = [...initialData.lists];
-    const list = lists[listId]
-    lists[listId] = { ...list, cards: list.cards.filter((i) => i.id !== cardId) }
+    const index = lists.findIndex((i) => i.id === listId);
+    const list = lists[index]
+    lists[index] = { ...list, cards: list.cards.filter((i) => i.id !== cardId) }
 
     return {
       ...state,
       initialData: { ...initialData, lists }
     }
   }
-  console.log({state, action})
-  // throw new Error();
   return state;
 };
 
