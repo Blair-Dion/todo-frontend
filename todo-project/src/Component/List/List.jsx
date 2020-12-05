@@ -5,36 +5,26 @@ import './List.scss';
 import Card from "../Card/Card";
 import Modal from "../../Common/Modal/Modal";
 
-const List = () => {
-    const [isModal, setIsModal] = useState(false)
-    const [isDeleteCard, setIsDeleteCard] = useState(false)
-    const [deleteCardId, setDeleteCardId] = useState(0)
-
+const List = ({userInfo, listInfo}) => {
+    const [isModal, setIsModal] = useState(false);
+    const [isDeleteCard, setIsDeleteCard] = useState(false);
+    const [deleteCardId, setDeleteCardId] = useState(0);
     const [isCardArea, setIsCardArea] = useState(false);
     const [newCardTitle, setNewCardTitle] = useState("");
     const [newCardContents, setNewCardContents] = useState("");
-    const [cardList, setCardList] = useState([{
-        cardId: 20,
-        cardTitle: "리액트 공부",
-        cardContents: "함수형 컴포넌트와 클래스형 컴포넌트의 차이"
-    }, {
-        cardId: 21,
-        cardTitle: "자바스크립트 공부",
-        cardContents: "프로토타입 체이닝에 대해서 설명해보자"
-    }, {
-        cardId: 22,
-        cardTitle: "자바 공부",
-        cardContents: "객체지향적으로 생각해보기 ="
-    }]);
+
+
+    const [cardList, setCardList] = useState(listInfo.cards);
 
     const handleClickCardInputAreaOpenBtn = () => setIsCardArea(!isCardArea);
     const handleClickCardAddBtn = (e) => {
         // todo:서버에세 새 카드의 정보를 보내서 저장요청 후 응답받기?
         e.preventDefault();
         const newCardInfo = {
-            cardId: cardList[cardList.length - 1].cardId++,
-            cardTitle: newCardTitle,
-            cardContents: newCardContents
+            id: cardList[cardList.length - 1].cardId++,
+            title: newCardTitle,
+            contents: newCardContents,
+            user_id: userInfo.user_id
         }
 
         setCardList([newCardInfo, ...cardList]);
@@ -55,7 +45,7 @@ const List = () => {
 
     useEffect(() => {
         cardList.map((card, index) => {
-            if (card.cardId === deleteCardId) {
+            if (card.id === deleteCardId) {
                 const tmpArray = [...cardList];
                 tmpArray.splice(index, 1);
                 setCardList(tmpArray);
@@ -101,16 +91,15 @@ const List = () => {
 
                     <div className="card-list-wrapper">
                         {cardList.map((card) => (
-                                <Card key={card.cardId} cardId={card.cardId} title={card.cardTitle}
-                                      contents={card.cardContents}
-                                      writer={"Blair"} setIsModal={setIsModal} isDeleteCard={isDeleteCard}
+                                <Card key={card.id} cardInfo={card} userInfo={userInfo} setIsModal={setIsModal}
                                       setDeleteCardId={setDeleteCardId}/>
                             )
                         )}
                     </div>
                 </div>
             </div>
-            {isModal ? <Modal message="선택한 카드를 삭제하시겠습니까?" setIsModal={setIsModal} setIsDeleteCard={setIsDeleteCard} setDeleteCardId={setDeleteCardId}/> : null}
+            {isModal ? <Modal message="선택한 카드를 삭제하시겠습니까?" setIsModal={setIsModal} setIsDeleteCard={setIsDeleteCard}
+                              setDeleteCardId={setDeleteCardId}/> : null}
         </>
     )
 }

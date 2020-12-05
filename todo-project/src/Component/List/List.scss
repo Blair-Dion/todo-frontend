@@ -4,12 +4,12 @@
   background-color: #efefef;
   border-radius: 5px;
   height: 85vh;
-  //width: 28vw;
+  width: 25vw;
   min-width: 310px;
   margin-right: 1rem;
 
   &:last-child {
-    margin-right: 0px;
+    margin-right: 0;
   }
 
   .list-wrapper {
@@ -32,7 +32,7 @@
         .card-count-wrapper {
           margin-right: 13px;
           background-color: gray;
-          padding: 6px 7.5px 0px 8.5px;
+          padding: 6px 7.5px 0 8.5px;
           border-radius: 100%;
 
           .card-count {
