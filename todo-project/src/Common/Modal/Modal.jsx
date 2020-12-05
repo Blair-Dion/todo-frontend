@@ -5,7 +5,7 @@ const Modal = ({message, setIsModal, setIsDeleteCard, setDeleteCardId}) => {
     const handleClickCancelBtn = () => {
         setIsModal(false);
         setIsDeleteCard(false);
-        setDeleteCardId(0);
+        setDeleteCardId(0);xL
     }
 
     const handleClickConfirmBtn = () => {
