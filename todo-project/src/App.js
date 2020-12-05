@@ -20,7 +20,7 @@ function App() {
     const getInitialData = async () => {
         setDataLoading(true);
         try {
-            const response = await axios.get("http://54.180.198.188/api/mock/v2/board/1");
+            const response = await axios.get("http://54.180.198.188/api/v1/board/1");
             setInitialData(response.data);
         } catch (err) {
             console.log(err);
