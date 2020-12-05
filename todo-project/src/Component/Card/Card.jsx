@@ -3,14 +3,20 @@ import './Card.scss';
 import {BsCardChecklist} from 'react-icons/bs';
 import {ImCancelCircle} from 'react-icons/im';
 
-const Card = ({cardInfo, userInfo, setIsModal, setDeleteCardId}) => {
-    const handleClickCardDelBtn = () => {
+const Card = ({cardInfo, userInfo, setIsModal, setDeleteCardId, setEditCardInfo, setIsEditCardModal}) => {
+    const handleClickCardDelBtn = (e) => {
+        e.stopPropagation();
         setIsModal(true);
         setDeleteCardId(cardInfo.id);
     }
 
+    const handleDBClickCard = () => {
+        setIsEditCardModal(true);
+        setEditCardInfo({editedTitle:cardInfo.title, editedContents:cardInfo.contents})
+    }
+
     return (
-        <div className="card-section">
+        <div id={cardInfo.id} className="card-section" onDoubleClick={handleDBClickCard}>
             <div className="card-wrapper">
                 <div className="card-header-wrapper">
                     <div className="header-left-wrapper">
