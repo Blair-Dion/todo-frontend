@@ -7,7 +7,7 @@ import axios from 'axios';
 
 function App() {
     const [userInfo, setUserInfo] = useState({id: 0, profile_image_url: "", user_id: "", user_nickname: ""});
-    const [initialData, setInitialData] = useState({id: 0, name: "", lists: []});
+    const [boardData, setBoardData] = useState({id: 0, name: "", lists: []});
     const [dataLoading, setDataLoading] = useState(false);
 
     const getUserInfo = async () => {
@@ -21,7 +21,7 @@ function App() {
         setDataLoading(true);
         try {
             const response = await axios.get("http://54.180.198.188/api/v1/board/1");
-            setInitialData(response.data);
+            setBoardData(response.data);
         } catch (err) {
             console.log(err);
         }
@@ -36,10 +36,10 @@ function App() {
 
     return (
         <div className="App">
-            <Header userInfo={userInfo} boardName={initialData.name}/>
+            <Header userInfo={userInfo} boardName={boardData.name}/>
             {dataLoading ? (<div>데이터를 가져오고 있습니다.</div>) : (
                 <div className="body-section">
-                    {initialData.lists.map(list => (
+                    {boardData.lists.map(list => (
                         <List key={list.id} userInfo={userInfo} listInfo={list}/>
                     ))}
                 </div>

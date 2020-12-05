@@ -63,9 +63,9 @@ const List = ({userInfo, listInfo}) => {
                     <div className="header-wrapper">
                         <div className="left-wrapper">
                             <div className="card-count-wrapper">
-                                <span className="card-count">3</span>
+                                <span className="card-count">{listInfo.cards.length}</span>
                             </div>
-                            <span className="list-title">Todo</span>
+                            <span className="list-title">{listInfo.name}</span>
                         </div>
                         <div className="right-wrapper">
                             <div className="btn card-add-btn" onClick={handleClickCardInputAreaOpenBtn}><BiAddToQueue/>
