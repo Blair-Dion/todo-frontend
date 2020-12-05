@@ -1,0 +1,107 @@
+.edit-card-modal-section {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+
+  .modal-section {
+    width: 35vw;
+    min-width: 135px;
+    height: 400px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid black;
+
+    .modal-header-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid gray;
+      background-color: #e3e3e3;
+      border-radius: 5px 5px 0 0;
+      font-weight: 700;
+
+      .title {
+        line-height: 1.2;
+      }
+
+      .close-btn {
+      }
+    }
+
+    .modal-body {
+      padding: 15px 20px;
+      border-radius: 0 0 5px 5px;
+      box-sizing: border-box;
+      height: 100%;
+
+      .body-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+        height: 100%;
+
+        .title-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          .title {
+            margin-bottom: 5px;
+            font-weight: 700;
+          }
+
+          .edit-title-text {
+            padding: 5px;
+          }
+        }
+
+        .contents-wrapper {
+
+
+          .title {
+            margin-bottom: 5px;
+            font-weight: 700;
+          }
+
+          div {
+            box-sizing: border-box;
+            width: 100%;
+            margin-bottom: 5px;
+
+            .edit-contents-text {
+              padding: 8px;
+              line-height: 1.2;
+              box-sizing: border-box;
+              max-width: 100%;
+              min-width: 100%;
+              min-height: 189px;
+              max-height: 189px;
+            }
+          }
+        }
+
+        button {
+          padding: 5px;
+          width: 85px;
+          height: 35px;
+          background-color: #30bc6e;
+          border: 1px solid #638a5e;
+          border-radius: 5px;
+          color: #ffffff;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
