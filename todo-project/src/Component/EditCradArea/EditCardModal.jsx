@@ -33,10 +33,17 @@ const EditCardModal = ({listArray, setListArray, editCardInfo, setEditCardInfo, 
     }
 
     const handleChangeCardEditArea = (e) => {
+        if(e.target.className === "edit-title-text") {
+            setEditCardInfo({
+                ...editCardInfo,
+                editedTitle: e.target.value
+            })
+        } else {
         setEditCardInfo({
             ...editCardInfo,
             editedContents: e.target.value
         })
+        }
     }
 
     return (
@@ -50,10 +57,16 @@ const EditCardModal = ({listArray, setListArray, editCardInfo, setEditCardInfo, 
                 </div>
                 <div className="modal-body">
                     <div className="body-wrapper">
-                        <span className="title">Note</span>
-                        <div>
-                            <textarea className="edit-textarea"
+                        <div className="title-wrapper">
+                            <span className="title">Title</span>
+                            <input type="text" className="edit-title-text" value={editCardInfo.editedTitle} onChange={handleChangeCardEditArea}/>
+                        </div>
+                        <div className="contents-wrapper">
+                            <span className="title">Contents</span>
+                            <div>
+                            <textarea className="edit-contents-text"
                                       onChange={handleChangeCardEditArea}>{editCardInfo.editedContents}</textarea>
+                            </div>
                         </div>
                         <button onClick={handleEditedCardSaveBtn}>Save note</button>
                     </div>

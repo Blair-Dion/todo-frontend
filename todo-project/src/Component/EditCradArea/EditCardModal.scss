@@ -12,7 +12,7 @@
   .modal-section {
     width: 35vw;
     min-width: 135px;
-    height: 340px;
+    height: 400px;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -43,28 +43,51 @@
       padding: 15px 20px;
       border-radius: 0 0 5px 5px;
       box-sizing: border-box;
+      height: 100%;
 
       .body-wrapper {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         box-sizing: border-box;
+        height: 100%;
 
-        .title {
-          margin-bottom: 5px;
-          font-weight: 700;
+        .title-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          .title {
+            margin-bottom: 5px;
+            font-weight: 700;
+          }
+
+          .edit-title-text {
+            padding: 5px;
+          }
         }
 
-        div {
-          box-sizing: border-box;
-          width: 100%;
-          margin-bottom: 5px;
+        .contents-wrapper {
 
-          .edit-textarea {
+
+          .title {
+            margin-bottom: 5px;
+            font-weight: 700;
+          }
+
+          div {
             box-sizing: border-box;
-            max-width: 100%;
-            min-width: 100%;
-            min-height: 189px;
-            max-height: 189px;
+            width: 100%;
+            margin-bottom: 5px;
+
+            .edit-contents-text {
+              padding: 8px;
+              line-height: 1.2;
+              box-sizing: border-box;
+              max-width: 100%;
+              min-width: 100%;
+              min-height: 189px;
+              max-height: 189px;
+            }
           }
         }
 
