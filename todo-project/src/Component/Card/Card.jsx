@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Card.scss';
 import {BsCardChecklist} from 'react-icons/bs';
 import {ImCancelCircle} from 'react-icons/im';
+import UserContext from '../../Context/UserContext';
 
-const Card = ({cardInfo, userInfo, setIsModal, setDeleteCardId}) => {
+const Card = ({cardInfo, setIsModal, setDeleteCardId}) => {
+    const userInfo = useContext(UserContext)
+
     const handleClickCardDelBtn = () => {
         setIsModal(true);
         setDeleteCardId(cardInfo.id);

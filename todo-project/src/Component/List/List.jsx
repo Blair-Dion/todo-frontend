@@ -1,11 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {BiAddToQueue} from 'react-icons/bi';
 import {HiOutlineDotsHorizontal} from 'react-icons/hi';
 import './List.scss';
 import Card from "../Card/Card";
 import Modal from "../../Common/Modal/Modal";
+import UserContext from '../../Context/UserContext';
 
-const List = ({userInfo, listInfo}) => {
+const List = ({listInfo}) => {
+    const userInfo = useContext(UserContext);
+
     const [isModal, setIsModal] = useState(false);
     const [isDeleteCard, setIsDeleteCard] = useState(false);
     const [deleteCardId, setDeleteCardId] = useState(0);
@@ -91,7 +94,7 @@ const List = ({userInfo, listInfo}) => {
 
                     <div className="card-list-wrapper">
                         {cardList.map((card) => (
-                                <Card key={card.id} cardInfo={card} userInfo={userInfo} setIsModal={setIsModal}
+                                <Card key={card.id} cardInfo={card} setIsModal={setIsModal}
                                       setDeleteCardId={setDeleteCardId}/>
                             )
                         )}

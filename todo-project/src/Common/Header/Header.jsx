@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { TiThMenuOutline } from 'react-icons/ti';
+import UserContext from '../../Context/UserContext';
 import './Header.scss';
 
-const Header = ({userInfo, boardName}) => {
-
+const Header = ({boardName}) => {
+    const userInfo = useContext(UserContext)
 
     return (
         <>
