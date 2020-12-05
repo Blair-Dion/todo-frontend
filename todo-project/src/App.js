@@ -38,11 +38,18 @@ function App() {
     return (
         <div className="App">
             <UserContext.Provider value={userInfo}>
-                <Header boardName={initialData.name} />
+                <Header boardName={initialData.name} totalTodoCount={initialData.lists.reduce((x, y) => x + y.cards.length, 0)} />
                 {dataLoading ? (<div>데이터를 가져오고 있습니다.</div>) : (
                     <div className="body-section">
-                        {initialData.lists.map(list => (
-                            <List key={list.id} listInfo={list} />
+                        {initialData.lists.map((list, index) => (
+                            <List 
+                                key={list.id}
+                                cards={list.cards}
+                                setCards={(cards) => {
+                                    const lists = [...initialData.lists];
+                                    lists[index] = { ...list, cards }
+                                    setInitialData({...initialData, lists })
+                                }} />
                         ))}
                     </div>
                 )}

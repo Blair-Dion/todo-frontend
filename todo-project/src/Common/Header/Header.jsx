@@ -3,7 +3,7 @@ import { TiThMenuOutline } from 'react-icons/ti';
 import UserContext from '../../Context/UserContext';
 import './Header.scss';
 
-const Header = ({boardName}) => {
+const Header = ({boardName, totalTodoCount }) => {
     const userInfo = useContext(UserContext)
 
     return (
@@ -14,6 +14,7 @@ const Header = ({boardName}) => {
                     <span className="username">{userInfo.user_nickname}</span>
                     <span className="board-title">{boardName}</span>
                 </div>
+                <span>{totalTodoCount}</span>
                 <div className="right-wrapper">
                     <div className="menu-wrapper">
                         <TiThMenuOutline className="btn"/>

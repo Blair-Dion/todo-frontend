@@ -6,7 +6,7 @@ import Card from "../Card/Card";
 import Modal from "../../Common/Modal/Modal";
 import UserContext from '../../Context/UserContext';
 
-const List = ({listInfo}) => {
+const List = ({cards, setCards}) => {
     const userInfo = useContext(UserContext);
 
     const [isModal, setIsModal] = useState(false);
@@ -16,21 +16,18 @@ const List = ({listInfo}) => {
     const [newCardTitle, setNewCardTitle] = useState("");
     const [newCardContents, setNewCardContents] = useState("");
 
-
-    const [cardList, setCardList] = useState(listInfo.cards);
-
     const handleClickCardInputAreaOpenBtn = () => setIsCardArea(!isCardArea);
     const handleClickCardAddBtn = (e) => {
         // todo:서버에세 새 카드의 정보를 보내서 저장요청 후 응답받기?
         e.preventDefault();
         const newCardInfo = {
-            id: cardList[cardList.length - 1].cardId++,
+            id: cards[cards.length - 1].cardId++,
             title: newCardTitle,
             contents: newCardContents,
             user_id: userInfo.user_id
         }
 
-        setCardList([newCardInfo, ...cardList]);
+        setCards([newCardInfo, ...cards]);
         setNewCardTitle("");
         setNewCardContents("");
         setIsCardArea(false);
@@ -47,11 +44,11 @@ const List = ({listInfo}) => {
     }
 
     useEffect(() => {
-        cardList.map((card, index) => {
+        cards.map((card, index) => {
             if (card.id === deleteCardId) {
-                const tmpArray = [...cardList];
+                const tmpArray = [...cards];
                 tmpArray.splice(index, 1);
-                setCardList(tmpArray);
+                setCards(tmpArray);
             }
         })
 
@@ -93,7 +90,7 @@ const List = ({listInfo}) => {
                         : null}
 
                     <div className="card-list-wrapper">
-                        {cardList.map((card) => (
+                        {cards.map((card) => (
                                 <Card key={card.id} cardInfo={card} setIsModal={setIsModal}
                                       setDeleteCardId={setDeleteCardId}/>
                             )
