@@ -12,7 +12,7 @@ const Card = ({cardInfo, userInfo, setIsModal, setDeleteCardId, setEditCardInfo,
 
     const handleDBClickCard = () => {
         setIsEditCardModal(true);
-        setEditCardInfo({editedTitle:cardInfo.title, editedContents:cardInfo.contents})
+        setEditCardInfo({listId:cardInfo.list_id, cardId:cardInfo.id, editedTitle:cardInfo.title, editedContents:cardInfo.contents})
     }
 
     return (

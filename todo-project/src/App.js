@@ -11,7 +11,7 @@ function App() {
     const [userInfo, setUserInfo] = useState({id: 0, profile_image_url: "", user_id: "", user_nickname: ""});
     const [boardData, setBoardData] = useState({id: 0, name: "", lists: []}); // 보드 전체 정보
     const [listArray, setListArray] = useState([]); // 리스트 배열
-    const [editCardInfo, setEditCardInfo] = useState({editedTitle: "", editedContents: ""})
+    const [editCardInfo, setEditCardInfo] = useState({listId:0, cardId:0, editedTitle: "", editedContents: ""})
     const [isEditCardModal, setIsEditCardModal] = useState(false);
 
 
@@ -32,11 +32,13 @@ function App() {
             console.log(err);
         }
         setDataLoading(false)
+
     }
 
     useEffect(() => {
         getUserInfo();
         getInitialData();
+
     }, [])
 
 
@@ -50,7 +52,7 @@ function App() {
                     ))}
                 </div>
             )}
-            {isEditCardModal ? (<EditCardModal editCardInfo={editCardInfo} setIsEditCardModal={setIsEditCardModal}/>) : null}
+            {isEditCardModal ? (<EditCardModal listArray={listArray} setListArray={setListArray} editCardInfo={editCardInfo} setEditCardInfo={setEditCardInfo} setIsEditCardModal={setIsEditCardModal}/>) : null}
         </div>
     );
 }

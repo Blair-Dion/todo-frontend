@@ -19,21 +19,13 @@ const List = ({userInfo, listInfo, setEditCardInfo, setIsEditCardModal}) => {
 
     const handleClickCardInputAreaOpenBtn = () => setIsCardArea(!isCardArea);
     const handleClickCardAddBtn = async (e) => {
-        // todo:서버에세 새 카드의 정보를 보내서 저장요청 후 응답받기?
 
-        axios.post("http://54.180.198.188/api/v1/board/1/list/1/card", {
+        axios.post("http://54.180.198.188/api/v1/board/1/list/" + listInfo.id + "/card", {
             "title": newCardTitle,
             "contents": newCardContents
         })
             .then(function (response) {
-                console.log(response.data + "선둥이의 응답");
-                const newCardInfo = response.data;
-                // const newCardInfo = {
-                //     id: cardList[cardList.length - 1].cardId++,
-                //     title: newCardTitle,
-                //     contents: newCardContents,
-                //     user_id: userInfo.user_id
-                // }
+                const newCardInfo = response.data.result
 
                 setCardList([newCardInfo, ...cardList]);
                 setNewCardTitle("");
@@ -45,17 +37,6 @@ const List = ({userInfo, listInfo, setEditCardInfo, setIsEditCardModal}) => {
             });
 
         e.preventDefault();
-        // const newCardInfo = {
-        //     id: cardList[cardList.length - 1].cardId++,
-        //     title: newCardTitle,
-        //     contents: newCardContents,
-        //     user_id: userInfo.user_id
-        // }
-        //
-        // setCardList([newCardInfo, ...cardList]);
-        // setNewCardTitle("");
-        // setNewCardContents("");
-        // setIsCardArea(false);
     }
     const handleClickCardCancelBtn = () => {
         setNewCardTitle("");
@@ -117,7 +98,8 @@ const List = ({userInfo, listInfo, setEditCardInfo, setIsEditCardModal}) => {
                     <div className="card-list-wrapper">
                         {cardList.map((card) => (
                                 <Card key={card.id} cardInfo={card} userInfo={userInfo} setIsModal={setIsModal}
-                                      setDeleteCardId={setDeleteCardId} setEditCardInfo={setEditCardInfo} setIsEditCardModal={setIsEditCardModal}/>
+                                      setDeleteCardId={setDeleteCardId} setEditCardInfo={setEditCardInfo}
+                                      setIsEditCardModal={setIsEditCardModal}/>
                             )
                         )}
                     </div>
