@@ -6,7 +6,9 @@ const Menu = () => {
     return (
         <>
             <div className="menu-section">
-                카드
+                <div className="menu-wrapper">
+
+                </div>
             </div>
         </>
     )
