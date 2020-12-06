@@ -3,6 +3,7 @@ import './App.scss';
 import './reset.scss';
 import Header from "./Common/Header/Header";
 import List from "./Component/List/List";
+import Menu from "./Common/Menu/Menu";
 import axios from 'axios';
 import EditCardModal from "./Component/EditCradArea/EditCardModal";
 
@@ -13,6 +14,10 @@ function App() {
     const [listArray, setListArray] = useState([]); // 리스트 배열
     const [editCardInfo, setEditCardInfo] = useState({listId:0, cardId:0, editedTitle: "", editedContents: ""})
     const [isEditCardModal, setIsEditCardModal] = useState(false);
+    const [menuModal, setMenuModal] = useState({
+        data: [],
+        isOpen:false
+    });
 
 
     const getUserInfo = async () => {
@@ -44,7 +49,7 @@ function App() {
 
     return (
         <div className="App">
-            <Header userInfo={userInfo} boardName={boardData.name}/>
+            <Header userInfo={userInfo} boardName={boardData.name} setMenuModal={setMenuModal} menuModal={menuModal}/>
             {dataLoading ? (<div>데이터를 가져오고 있습니다.</div>) : (
                 <div className="body-section">
                     {listArray.map(list => (
@@ -53,6 +58,8 @@ function App() {
                 </div>
             )}
             {isEditCardModal ? (<EditCardModal listArray={listArray} setListArray={setListArray} editCardInfo={editCardInfo} setEditCardInfo={setEditCardInfo} setIsEditCardModal={setIsEditCardModal}/>) : null}
+            {/*{menuModal.isOpen ? (<Menu/>) : null}*/}
+            <Menu/>
         </div>
     );
 }

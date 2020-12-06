@@ -1,7 +1,7 @@
 .modal-page{
   position: fixed;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
@@ -39,7 +39,6 @@
         margin-right: 10px;
       }
       .confirm-btn {
-        background: #ffffff;
         border: 1px solid #377de7;
         border-radius: 5px;
         background-color: #2179ff;

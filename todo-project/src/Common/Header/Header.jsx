@@ -2,8 +2,7 @@ import React from 'react';
 import { TiThMenuOutline } from 'react-icons/ti';
 import './Header.scss';
 
-const Header = ({userInfo, boardName}) => {
-
+const Header = ({userInfo, boardName, menuModal, setMenuModal}) => {
 
     return (
         <>
@@ -14,7 +13,7 @@ const Header = ({userInfo, boardName}) => {
                     <span className="board-title">{boardName}</span>
                 </div>
                 <div className="right-wrapper">
-                    <div className="menu-wrapper">
+                    <div className="menu-wrapper" onClick={() => setMenuModal({...menuModal, isOpen : true})}>
                         <TiThMenuOutline className="btn"/>
                     </div>
                 </div>
