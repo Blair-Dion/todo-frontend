@@ -67,6 +67,7 @@
     .card-create-area-wrapper {
       margin-bottom: 10px;
       box-sizing: border-box;
+
       .contents-wrapper {
         display: flex;
         flex-direction: column;
@@ -78,6 +79,7 @@
           margin-bottom: 5px;
           padding: 7px
         }
+
         .contents {
           width: 100%;
           max-width: 100%;
@@ -85,11 +87,13 @@
           padding: 8px;
         }
       }
+
       .btn-wrapper {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-content: center;
+
         .btn {
           display: flex;
           justify-content: center;
@@ -108,6 +112,7 @@
           border: 1px solid #099f5a;
 
         }
+
         .cancel-btn {
           background-color: #fdfdfd;
           border: 1px solid #c2c2c2;

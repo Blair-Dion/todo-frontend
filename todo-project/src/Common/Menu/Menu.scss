@@ -108,14 +108,17 @@
         .history-list {
           display: flex;
           flex-direction: column;
+
           .item {
             padding: 10px 15px;
             border-bottom: 1px solid gray;
             display: flex;
             flex-direction: row;
             align-items: center;
+
             .left-wrapper {
               display: flex;
+
               .user-img {
                 width: 32px;
                 height: 32px;
@@ -129,6 +132,7 @@
               display: flex;
               flex-direction: column;
               line-height: 1.2;
+
               .message-wrapper {
                 .user-id {
                   font-weight: 600;
@@ -139,11 +143,13 @@
                 .status {
                   margin-right: 5px;
                 }
+
                 .target {
                   font-weight: 600;
                   color: #3582e3;
                   margin-right: 5px;
                 }
+
                 .pos {
 
                 }
@@ -156,6 +162,7 @@
             }
           }
         }
+
         .bottom-wrapper {
           padding: 15px;
 
@@ -165,6 +172,7 @@
             background-color: #f3f3f3;
             border: 1px solid #ababab;
             border-radius: 5px;
+
             .btn-text {
               font-weight: 600;
               color: #3582e3;
