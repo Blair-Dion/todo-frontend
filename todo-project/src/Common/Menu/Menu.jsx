@@ -1,9 +1,9 @@
 import React from 'react';
 import './Menu.scss';
-import {TiThMenuOutline} from 'react-icons/ti';
-import {ImCancelCircle} from 'react-icons/im';
-import {GrPowerReset} from 'react-icons/gr';
-import {BiBell} from 'react-icons/bi';
+import { TiThMenuOutline } from 'react-icons/ti';
+import { ImCancelCircle } from 'react-icons/im';
+import { GrPowerReset } from 'react-icons/gr';
+import { BiBell } from 'react-icons/bi';
 
 const Menu = () => {
   
