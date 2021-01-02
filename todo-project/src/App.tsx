@@ -49,7 +49,8 @@ function App() {
   
   return (
     <div className="App">
-      <Header userInfo={userInfo} boardName={boardData.name} setMenuModal={setMenuModal} menuModal={menuModal}/>
+      {/*<Header userInfo={userInfo} boardName={boardData.name} setMenuModal={setMenuModal} menuModal={menuModal}/>*/}
+      <Header userInfo={userInfo} boardName={boardData.name}/>
       {dataLoading ? (<div>데이터를 가져오고 있습니다.</div>) : (
         <div className="body-section">
           {listArray.map(list => (
