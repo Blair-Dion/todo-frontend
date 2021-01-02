@@ -1,10 +1,10 @@
 import React from 'react';
 import './EditCardModal.scss';
-import { ImCancelCircle } from 'react-icons/im';
+import {ImCancelCircle} from 'react-icons/im';
 import axios from "axios";
 
 
-const EditCardModal = ({listArray, setListArray, editCardInfo, setEditCardInfo, setIsEditCardModal}) => {
+const EditCardModal = ({ listArray, setListArray, editCardInfo, setEditCardInfo, setIsEditCardModal }) => {
   const handleEditedCardSaveBtn = () => {
     axios.put(`http://54.180.198.188/api/v1/board/1/list/${editCardInfo.listId}/card/${editCardInfo.cardId}`, {
       "title": editCardInfo.editedTitle,
