@@ -9,10 +9,10 @@ import EditCardModal from "./Component/EditCradArea/EditCardModal";
 
 function App() {
   const [dataLoading, setDataLoading] = useState(false);
-  const [userInfo, setUserInfo] = useState({id: 0, profile_image_url: "", user_id: "", user_nickname: ""});
-  const [boardData, setBoardData] = useState({id: 0, name: "", lists: []}); // 보드 전체 정보
+  const [userInfo, setUserInfo] = useState({ id: 0, profile_image_url: "", user_id: "", user_nickname: "" });
+  const [boardData, setBoardData] = useState({ id: 0, name: "", lists: [] }); // 보드 전체 정보
   const [listArray, setListArray] = useState([]); // 리스트 배열
-  const [editCardInfo, setEditCardInfo] = useState({listId: 0, cardId: 0, editedTitle: "", editedContents: ""})
+  const [editCardInfo, setEditCardInfo] = useState({ listId: 0, cardId: 0, editedTitle: "", editedContents: "" })
   const [isEditCardModal, setIsEditCardModal] = useState(false);
   const [menuModal, setMenuModal] = useState({
     data: [],

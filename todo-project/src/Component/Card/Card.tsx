@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.scss';
-import {BsCardChecklist} from 'react-icons/bs';
-import {ImCancelCircle} from 'react-icons/im';
+import { BsCardChecklist } from 'react-icons/bs';
+import { ImCancelCircle } from 'react-icons/im';
 
 const Card = ({ cardInfo, userInfo, setIsModal, setDeleteCardId, setEditCardInfo, setIsEditCardModal }) => {
   const handleClickCardDelBtn = (e) => {
