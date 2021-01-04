@@ -1,53 +1,60 @@
-import React, {useState, useEffect} from 'react';
-import {BiAddToQueue} from 'react-icons/bi';
-import {HiOutlineDotsHorizontal} from 'react-icons/hi';
+import React, { useState, useEffect, MouseEvent, ChangeEvent } from 'react';
+import { BiAddToQueue } from 'react-icons/bi';
+import { HiOutlineDotsHorizontal } from 'react-icons/hi';
+import axios, { AxiosResponse } from 'axios';
 import './List.scss';
-import Card from "../Card/Card";
-import Modal from "../../Common/Modal/Modal";
-import axios from "axios";
+import Card from '../Card/Card';
+import Modal from '../../Common/Modal/Modal';
+import CardModel, { EditCard } from '../../model/Card';
+import ListModel from '../../model/List';
+import User from '../../model/User';
 
-const List = ({ userInfo, listInfo, setEditCardInfo, setIsEditCardModal }) => {
-  const [isModal, setIsModal] = useState(false);
-  const [isDeleteCard, setIsDeleteCard] = useState(false);
-  const [deleteCardId, setDeleteCardId] = useState(0);
-  const [isCardArea, setIsCardArea] = useState(false);
-  const [newCardTitle, setNewCardTitle] = useState("");
-  const [newCardContents, setNewCardContents] = useState("");
-  
-  
-  const [cardList, setCardList] = useState(listInfo.cards);
-  
-  const handleClickCardInputAreaOpenBtn = () => setIsCardArea(!isCardArea);
-  const handleClickCardAddBtn = async (e) => {
+interface Props {
+  userInfo: User;
+  listInfo: ListModel;
+  setEditCardInfo: (editCard: EditCard) => void;
+  setIsEditCardModal: (bool: boolean) => void;
+}
+
+const List: React.FC<Props> = ({ userInfo, listInfo, setEditCardInfo, setIsEditCardModal }: Props) => {
+  const [isModal, setIsModal] = useState<boolean>(false);
+  const [isDeleteCard, setIsDeleteCard] = useState<boolean>(false);
+  const [deleteCardId, setDeleteCardId] = useState<number>(0);
+  const [isCardArea, setIsCardArea] = useState<boolean>(false);
+  const [newCardTitle, setNewCardTitle] = useState<string>('');
+  const [newCardContents, setNewCardContents] = useState<string>('');
+  const [cardList, setCardList] = useState<CardModel[]>(listInfo.cards);
+  const handleClickCardInputAreaOpenBtn = (): void => setIsCardArea(!isCardArea);
+  const handleClickCardAddBtn = async (e: MouseEvent<HTMLButtonElement>) => {
     
-    axios.post("http://54.180.198.188/api/v1/board/1/list/" + listInfo.id + "/card", {
-      "title": newCardTitle,
-      "contents": newCardContents
+    axios.post('http://54.180.198.188/api/v1/board/1/list/' + listInfo.id + '/card', {
+      'title': newCardTitle,
+      'contents': newCardContents,
     })
-      .then(function (response) {
-        const newCardInfo = response.data.result
+      .then(function (response: AxiosResponse<any>) {
+        const newCardInfo: CardModel = response.data.result;
         
         setCardList([newCardInfo, ...cardList]);
-        setNewCardTitle("");
-        setNewCardContents("");
+        setNewCardTitle('');
+        setNewCardContents('');
         setIsCardArea(false);
       })
-      .catch(function (error) {
+      .catch(function (error): void {
         console.log(error);
       });
     
     e.preventDefault();
-  }
-  const handleClickCardCancelBtn = () => {
-    setNewCardTitle("");
-    setNewCardContents("");
-    setIsCardArea(false)
-  }
-  const handleCardInputInfoChange = (e) => {
+  };
+  const handleClickCardCancelBtn = (): void => {
+    setNewCardTitle('');
+    setNewCardContents('');
+    setIsCardArea(false);
+  };
+  const handleCardInputInfoChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const tmpText = e.target.value;
     
-    e.target.className === "title" ? setNewCardTitle(tmpText) : setNewCardContents(tmpText);
-  }
+    e.target.className === 'title' ? setNewCardTitle(tmpText) : setNewCardContents(tmpText);
+  };
   
   useEffect(() => {
     cardList.map((card, index) => {
@@ -56,10 +63,10 @@ const List = ({ userInfo, listInfo, setEditCardInfo, setIsEditCardModal }) => {
         tmpArray.splice(index, 1);
         setCardList(tmpArray);
       }
-    })
+    });
     
     setIsDeleteCard(false);
-  }, [isDeleteCard])
+  }, [isDeleteCard]);
   
   
   return (
@@ -100,7 +107,7 @@ const List = ({ userInfo, listInfo, setEditCardInfo, setIsEditCardModal }) => {
                 <Card key={card.id} cardInfo={card} userInfo={userInfo} setIsModal={setIsModal}
                       setDeleteCardId={setDeleteCardId} setEditCardInfo={setEditCardInfo}
                       setIsEditCardModal={setIsEditCardModal}/>
-              )
+              ),
             )}
           </div>
         </div>
@@ -108,7 +115,7 @@ const List = ({ userInfo, listInfo, setEditCardInfo, setIsEditCardModal }) => {
       {isModal ? <Modal message="선택한 카드를 삭제하시겠습니까?" setIsModal={setIsModal} setIsDeleteCard={setIsDeleteCard}
                         setDeleteCardId={setDeleteCardId}/> : null}
     </>
-  )
-}
+  );
+};
 
 export default List;

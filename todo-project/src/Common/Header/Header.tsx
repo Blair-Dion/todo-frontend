@@ -1,15 +1,15 @@
 import React from 'react';
-import {TiThMenuOutline} from 'react-icons/ti';
+import { TiThMenuOutline } from 'react-icons/ti';
 import './Header.scss';
+import User from '../../model/User';
 
-interface HeaderProps {
-  userInfo: { id: number, profile_image_url: string, user_id: string, user_nickname: string },
-  boardName: string
+interface Props {
+  userInfo: User;
+  boardName: string;
+  fn?: (name: string) => string; // 테스트로 사용 않는 함수 생성해봄
 }
 
-// const Header = ({userInfo, boardName}) => {
-// const Header = (props: HeaderProps) => {
-const Header = ({ userInfo, boardName }: HeaderProps) => {
+const Header: React.FC<Props> = ({ userInfo, boardName }: Props) => { // 타스 도입방식2
   
   return (
     <>
@@ -26,7 +26,7 @@ const Header = ({ userInfo, boardName }: HeaderProps) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Header;

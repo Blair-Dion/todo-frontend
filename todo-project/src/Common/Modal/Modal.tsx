@@ -1,17 +1,24 @@
 import React from 'react';
 import './Modal.scss';
 
-const Modal = ({ message, setIsModal, setIsDeleteCard, setDeleteCardId }) => {
-  const handleClickCancelBtn = () => {
+interface Props {
+  message: string;
+  setIsModal: (bool: boolean) => void;
+  setIsDeleteCard: (bool: boolean) => void;
+  setDeleteCardId: (id: number) => void;
+}
+
+const Modal: React.FC<Props> = ({ message, setIsModal, setIsDeleteCard, setDeleteCardId }: Props) => {
+  const handleClickCancelBtn = (): void => {
     setIsModal(false);
     setIsDeleteCard(false);
     setDeleteCardId(0);
-  }
+  };
   
-  const handleClickConfirmBtn = () => {
+  const handleClickConfirmBtn = (): void => {
     setIsModal(false);
     setIsDeleteCard(true);
-  }
+  };
   
   return (
     <div className="modal-page">
@@ -23,7 +30,7 @@ const Modal = ({ message, setIsModal, setIsDeleteCard, setDeleteCardId }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Modal;

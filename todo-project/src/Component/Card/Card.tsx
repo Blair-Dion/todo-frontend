@@ -1,27 +1,46 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import './Card.scss';
 import { BsCardChecklist } from 'react-icons/bs';
 import { ImCancelCircle } from 'react-icons/im';
+import CardInfo from '../../model/Card';
+import { EditCard } from '../../model/Card';
+import User from '../../model/User';
 
-const Card = ({ cardInfo, userInfo, setIsModal, setDeleteCardId, setEditCardInfo, setIsEditCardModal }) => {
-  const handleClickCardDelBtn = (e) => {
+interface Props {
+  cardInfo: CardInfo;
+  userInfo: User;
+  setIsModal: (bool: boolean) => void;
+  setDeleteCardId: (id: number) => void;
+  setEditCardInfo: (card: EditCard) => void;
+  setIsEditCardModal: (bool: boolean) => void;
+}
+
+const Card: React.FC<Props> = ({
+                                 cardInfo,
+                                 userInfo,
+                                 setIsModal,
+                                 setDeleteCardId,
+                                 setEditCardInfo,
+                                 setIsEditCardModal,
+                               }: Props) => {
+  const handleClickCardDelBtn = (e: MouseEvent<HTMLInputElement>): void => {
     e.stopPropagation();
     setIsModal(true);
     setDeleteCardId(cardInfo.id);
-  }
+  };
   
-  const handleDBClickCard = () => {
+  const handleDBClickCard = (): void => {
     setIsEditCardModal(true);
     setEditCardInfo({
       listId: cardInfo.list_id,
       cardId: cardInfo.id,
       editedTitle: cardInfo.title,
-      editedContents: cardInfo.contents
-    })
-  }
+      editedContents: cardInfo.contents,
+    });
+  };
   
   return (
-    <div id={cardInfo.id} className="card-section" onDoubleClick={handleDBClickCard}>
+    <div className="card-section" onDoubleClick={handleDBClickCard}>
       <div className="card-wrapper">
         <div className="card-header-wrapper">
           <div className="header-left-wrapper">
@@ -35,7 +54,7 @@ const Card = ({ cardInfo, userInfo, setIsModal, setDeleteCardId, setEditCardInfo
                                         <img src={userInfo.profile_image_url} alt="image"/></span>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Card;
