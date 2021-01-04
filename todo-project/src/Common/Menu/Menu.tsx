@@ -5,7 +5,7 @@ import { ImCancelCircle } from 'react-icons/im';
 import { GrPowerReset } from 'react-icons/gr';
 import { BiBell } from 'react-icons/bi';
 
-const Menu = () => {
+const Menu: React.FC = () => {
   
   return (
     <>

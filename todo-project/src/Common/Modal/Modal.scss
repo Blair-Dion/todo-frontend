@@ -1,7 +1,7 @@
-.modal-page{
+.modal-page {
   position: fixed;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
@@ -20,16 +20,20 @@
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid black;
+
     .message {
 
     }
+
     .btn-wrapper {
       display: flex;
       justify-content: flex-end;
+
       .btn {
         width: 60px;
         padding: 5px;
       }
+
       .cancel-btn {
         background: #ffffff;
         border: 1px solid lightgray;
@@ -38,8 +42,8 @@
         font-weight: 600;
         margin-right: 10px;
       }
+
       .confirm-btn {
-        background: #ffffff;
         border: 1px solid #377de7;
         border-radius: 5px;
         background-color: #2179ff;

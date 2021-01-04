@@ -1,8 +1,15 @@
 import React from 'react';
 import { TiThMenuOutline } from 'react-icons/ti';
 import './Header.scss';
+import User from '../../model/User';
 
-const Header = ({userInfo, boardName, menuModal, setMenuModal}) => {
+interface Props {
+  userInfo: User;
+  boardName: string;
+  fn?: (name: string) => string; // 테스트로 사용 않는 함수 생성해봄
+}
+
+const Header: React.FC<Props> = ({ userInfo, boardName }: Props) => { // 타스 도입방식2
   
   return (
     <>
@@ -13,13 +20,13 @@ const Header = ({userInfo, boardName, menuModal, setMenuModal}) => {
           <span className="board-title">{boardName}</span>
         </div>
         <div className="right-wrapper">
-          <div className="menu-wrapper" onClick={() => setMenuModal({...menuModal, isOpen: true})}>
+          <div className="menu-wrapper">
             <TiThMenuOutline className="btn"/>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Header;

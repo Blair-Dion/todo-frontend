@@ -11,3 +11,6 @@
 - ![title](https://img.shields.io/badge/-Babel-eece4f?&logo=Babel&logoColor=white)
 - ![title](https://img.shields.io/badge/-Github-181717?&logo=Github&logoColor=white)
 - ![title](https://img.shields.io/badge/-Slack-4A154B?&logo=Slack&logoColor=white)
+
+### Todo
+-[ ]  컴포넌트들이 너무 많은 정보를 알고있는 것 같다. 관심 분리하기
